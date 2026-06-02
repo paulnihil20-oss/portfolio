@@ -6,22 +6,21 @@
   <meta name="description" content="Paul — Computer Science Engineering Student at Loyola-ICAM College of Engineering and Technology, Aspiring Full Stack Developer from Madurai, Tamil Nadu. Explore my projects, skills, certifications, and get in touch." />
   <meta name="keywords" content="Paul, Paulnihil, Portfolio, Computer Science Engineering, Full Stack Developer, Java, Web Developer, Madurai, Loyola-ICAM" />
   <meta name="author" content="Paul" />
-  <meta name="theme-color" content="#0a0a1a" />
+  <meta name="theme-color" content="#050510" />
   <meta property="og:title" content="Paul | Portfolio" />
   <meta property="og:description" content="CSE Student at Loyola-ICAM & Aspiring Full Stack Developer" />
   <meta property="og:type" content="website" />
   <title>Paul | Portfolio — CSE Student & Aspiring Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- Animated Background -->
   <canvas id="particles-canvas" aria-hidden="true"></canvas>
-  <div class="bg-gradient-orbs" aria-hidden="true">
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-  </div>
 
   <!-- ============ NAVIGATION ============ -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
@@ -46,26 +45,38 @@
   <!-- ============ HERO SECTION ============ -->
   <section id="hero">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Available for opportunities
+      <div class="hero-grid">
+        <div class="hero-content animate-on-scroll">
+          <div class="hero-badge">
+            Available for opportunities
+          </div>
+          <p class="hero-greeting">// Hello World</p>
+          <h1 class="hero-name">
+            Hi, I'm <span class="gradient-text">Paul</span>
+          </h1>
+          <p class="hero-tagline">CSE Student at Loyola-ICAM | Aspiring Software Developer</p>
+          <div class="hero-typed" id="typed-text" aria-live="polite"></div>
+          <div class="hero-buttons">
+            <a href="Paul_Nihil_Resume.pdf" target="_blank" class="btn btn-primary" id="hero-resume-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              View Resume
+            </a>
+            <a href="#contact" class="btn btn-secondary" id="hero-contact-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Contact Me
+            </a>
+          </div>
         </div>
-        <p class="hero-greeting">Hello, welcome to my world</p>
-        <h1 class="hero-name">
-          Hi, I'm <span class="gradient-text">Paul</span>
-        </h1>
-        <p class="hero-tagline">CSE Student at Loyola-ICAM | Aspiring Software Developer</p>
-        <div class="hero-typed" id="typed-text" aria-live="polite"></div>
-        <div class="hero-buttons">
-          <a href="Paul_Nihil_Resume.pdf" target="_blank" class="btn btn-primary" id="hero-resume-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            View Resume
-          </a>
-          <a href="#contact" class="btn btn-secondary" id="hero-contact-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Contact Me
-          </a>
+        <div class="hero-visual animate-on-scroll" data-delay="2">
+          <div class="hero-avatar-card">
+            <div class="avatar-ring"></div>
+            <div class="avatar-glow"></div>
+            <img src="images/avatar.png" alt="Paul Avatar" class="hero-avatar" />
+            <!-- Floating Tech Badges -->
+            <div class="floating-tech tech-java"><i class="fa-brands fa-java"></i><span>Java</span></div>
+            <div class="floating-tech tech-js"><i class="fa-brands fa-js"></i><span>JS</span></div>
+            <div class="floating-tech tech-sql"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -86,7 +97,7 @@
       <div class="about-grid">
         <div class="about-image-wrapper animate-on-scroll">
           <div class="about-image">
-            <div class="placeholder-avatar">👨‍💻</div>
+            <img src="images/profile.png" alt="Paul — Computer Science Student" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1rem;" />
           </div>
           <div class="about-image-decoration"></div>
         </div>
@@ -141,53 +152,101 @@
       <div class="skills-grid">
         <!-- Programming Languages -->
         <div class="skill-category glass-card animate-on-scroll" data-delay="1">
-          <div class="skill-category-icon">💻</div>
-          <h3>Programming Languages</h3>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">Java</span><span class="skill-percent">85%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Programming Languages</h3>
           </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">SQL</span><span class="skill-percent">80%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">PL/SQL</span><span class="skill-percent">75%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">HTML</span><span class="skill-percent">90%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">CSS</span><span class="skill-percent">85%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-percent">78%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
+          <div class="skills-subgrid">
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #f89820;"><i class="fa-brands fa-java"></i></div>
+              <h4>Java</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>85% · Advanced</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #00758f;"><i class="fa-solid fa-database"></i></div>
+              <h4>SQL</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>80% · Advanced</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #f29111;"><i class="fa-solid fa-server"></i></div>
+              <h4>PL/SQL</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>75% · Intermediate</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #e34f26;"><i class="fa-brands fa-html5"></i></div>
+              <h4>HTML</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>90% · Expert</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #00599c;"><i class="fa-solid fa-c"></i></div>
+              <h4>C</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>80% · Advanced</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #3776ab;"><i class="fa-brands fa-python"></i></div>
+              <h4>Python</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>82% · Advanced</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Tools & Technologies -->
         <div class="skill-category glass-card animate-on-scroll" data-delay="2">
-          <div class="skill-category-icon">🛠️</div>
-          <h3>Tools & Technologies</h3>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">Figma</span><span class="skill-percent">80%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <h3>Tools & Technologies</h3>
           </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">Git & GitHub</span><span class="skill-percent">75%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">VS Code</span><span class="skill-percent">90%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span class="skill-name">MySQL</span><span class="skill-percent">82%</span></div>
-            <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
+          <div class="skills-subgrid">
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #f24e1e;"><i class="fa-brands fa-figma"></i></div>
+              <h4>Figma</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>80% · Advanced</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #f05032;"><i class="fa-brands fa-git-alt"></i></div>
+              <h4>Git & GitHub</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>75% · Intermediate</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #007acc;"><i class="fa-solid fa-laptop-code"></i></div>
+              <h4>VS Code</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>90% · Expert</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrapper" style="color: #00758f;"><i class="fa-solid fa-server"></i></div>
+              <h4>MySQL</h4>
+              <div class="skill-level">
+                <span class="skill-progress-dot"></span>
+                <span>82% · Advanced</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -283,7 +342,7 @@
         <!-- Project 1 -->
         <div class="project-card glass-card animate-on-scroll" data-delay="1">
           <div class="project-image">
-            <div class="project-placeholder">🚦</div>
+            <img src="images/smart_traffic.png" alt="Smart Traffic Signal Dashboard" style="width:100%; height:100%; object-fit:cover;" />
             <div class="project-image-overlay">
               <a href="#" class="btn btn-sm btn-primary" id="project1-demo">Live Demo</a>
               <a href="#" class="btn btn-sm btn-secondary" id="project1-code">Code</a>
@@ -334,7 +393,7 @@
         <!-- Project 3 -->
         <div class="project-card glass-card animate-on-scroll" data-delay="3">
           <div class="project-image">
-            <div class="project-placeholder">✅</div>
+            <img src="images/approvex.png" alt="ApproveX Dashboard" style="width:100%; height:100%; object-fit:cover;" />
             <div class="project-image-overlay">
               <a href="https://github.com/paulnihil20-oss" target="_blank" class="btn btn-sm btn-secondary" id="project3-code">Code</a>
             </div>
@@ -366,10 +425,7 @@
         <p class="section-subtitle">A summary of my education, skills, and professional experience.</p>
       </div>
       <div class="resume-content">
-        <div class="resume-preview glass-card animate-on-scroll" style="padding: 0; overflow: hidden;">
-          <iframe src="Paul_Nihil_Resume.pdf" width="100%" height="100%" style="border: none; min-height: 500px;"></iframe>
-        </div>
-        <div class="resume-info animate-on-scroll" data-delay="2">
+        <div class="resume-info glass-card animate-on-scroll" data-delay="2">
           <h3>Download My Resume</h3>
           <p>
             My resume highlights my education in Computer Science, technical skills across multiple programming
@@ -377,11 +433,26 @@
             or view the full document.
           </p>
           <ul class="resume-features">
-            <li><span class="check">✓</span> Education & Academic Achievements</li>
-            <li><span class="check">✓</span> Technical Skills & Proficiencies</li>
-            <li><span class="check">✓</span> Professional Certifications</li>
-            <li><span class="check">✓</span> Project Portfolio & Experience</li>
-            <li><span class="check">✓</span> Extracurricular Activities</li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Education & Academic Achievements
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Technical Skills & Proficiencies
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Professional Certifications
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Project Portfolio & Experience
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Extracurricular Activities
+            </li>
           </ul>
           <div class="resume-buttons">
             <a href="Paul_Nihil_Resume.pdf" download class="btn btn-primary" id="resume-download-btn">
