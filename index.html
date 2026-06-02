@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Paul — Computer Science Engineering Student at Loyola-ICAM College of Engineering and Technology, Aspiring Full Stack Developer from Madurai, Tamil Nadu. Explore my projects, skills, certifications, and get in touch." />
+  <meta name="keywords" content="Paul, Paulnihil, Portfolio, Computer Science Engineering, Full Stack Developer, Java, Web Developer, Madurai, Loyola-ICAM" />
+  <meta name="author" content="Paul" />
+  <meta name="theme-color" content="#0a0a1a" />
+  <meta property="og:title" content="Paul | Portfolio" />
+  <meta property="og:description" content="CSE Student at Loyola-ICAM & Aspiring Full Stack Developer" />
+  <meta property="og:type" content="website" />
+  <title>Paul | Portfolio — CSE Student & Aspiring Full Stack Developer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="bg-gradient-orbs" aria-hidden="true">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="#hero" class="nav-logo" aria-label="Home">P<span>.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </div>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Available for opportunities
+        </div>
+        <p class="hero-greeting">Hello, welcome to my world</p>
+        <h1 class="hero-name">
+          Hi, I'm <span class="gradient-text">Paul</span>
+        </h1>
+        <p class="hero-tagline">CSE Student at Loyola-ICAM | Aspiring Software Developer</p>
+        <div class="hero-typed" id="typed-text" aria-live="polite"></div>
+        <div class="hero-buttons">
+          <a href="Paul_Nihil_Resume.pdf" target="_blank" class="btn btn-primary" id="hero-resume-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            View Resume
+          </a>
+          <a href="#contact" class="btn btn-secondary" id="hero-contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT SECTION ============ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Who I Am</span>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Passionate about building digital experiences that make a difference.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-wrapper animate-on-scroll">
+          <div class="about-image">
+            <div class="placeholder-avatar">👨‍💻</div>
+          </div>
+          <div class="about-image-decoration"></div>
+        </div>
+        <div class="about-text animate-on-scroll" data-delay="2">
+          <h3>A Passionate Developer from Madurai, India</h3>
+          <p>
+            I'm Paul, a Computer Science Engineering student at Loyola-ICAM College of Engineering and Technology
+            with a deep passion for software development and creating elegant digital solutions. I thrive on
+            turning complex problems into simple, intuitive designs and love the entire process of building
+            software from concept to deployment.
+          </p>
+          <p>
+            My journey in tech is driven by curiosity and a relentless desire to learn. I specialize in
+            Web Development, Java programming, Database Management, and UI/UX Design. I believe in writing
+            clean, efficient code and crafting user-centric experiences that leave a lasting impact.
+          </p>
+          <div class="about-highlights">
+            <span class="tag">Web Development</span>
+            <span class="tag">Java</span>
+            <span class="tag">Database Design</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Full Stack</span>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card animate-on-scroll" data-delay="1">
+              <span class="stat-number" data-count="3" data-suffix="+">0</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-card animate-on-scroll" data-delay="2">
+              <span class="stat-number" data-count="4" data-suffix="+">0</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+            <div class="stat-card animate-on-scroll" data-delay="3">
+              <span class="stat-number" data-count="12" data-suffix="+">0</span>
+              <span class="stat-label">Technologies Learned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS SECTION ============ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">What I Know</span>
+        <h2 class="section-title">Skills & Expertise</h2>
+        <p class="section-subtitle">Technologies and tools I work with to bring ideas to life.</p>
+      </div>
+      <div class="skills-grid">
+        <!-- Programming Languages -->
+        <div class="skill-category glass-card animate-on-scroll" data-delay="1">
+          <div class="skill-category-icon">💻</div>
+          <h3>Programming Languages</h3>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">Java</span><span class="skill-percent">85%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">SQL</span><span class="skill-percent">80%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">PL/SQL</span><span class="skill-percent">75%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">HTML</span><span class="skill-percent">90%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">CSS</span><span class="skill-percent">85%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-percent">78%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
+          </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="skill-category glass-card animate-on-scroll" data-delay="2">
+          <div class="skill-category-icon">🛠️</div>
+          <h3>Tools & Technologies</h3>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">Figma</span><span class="skill-percent">80%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">Git & GitHub</span><span class="skill-percent">75%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">VS Code</span><span class="skill-percent">90%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span class="skill-name">MySQL</span><span class="skill-percent">82%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category glass-card animate-on-scroll" data-delay="3">
+          <div class="skill-category-icon">🧠</div>
+          <h3>Soft Skills</h3>
+          <div class="soft-skills-list">
+            <div class="soft-skill-item">
+              <span class="icon">🤝</span>
+              Teamwork & Collaboration
+            </div>
+            <div class="soft-skill-item">
+              <span class="icon">🗣️</span>
+              Communication
+            </div>
+            <div class="soft-skill-item">
+              <span class="icon">🧩</span>
+              Problem Solving
+            </div>
+            <div class="soft-skill-item">
+              <span class="icon">👑</span>
+              Leadership
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS SECTION ============ -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Credentials</span>
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">Professional certifications that validate my expertise and commitment to growth.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card glass-card animate-on-scroll" data-delay="1">
+          <div class="cert-icon">🏅</div>
+          <h3>Oracle SQL Certification</h3>
+          <span class="cert-issuer">Oracle Academy</span>
+          <p>Demonstrated proficiency in Database Programming with SQL including data retrieval, manipulation, and database management using Oracle SQL.</p>
+          <a href="certificates/oracle_sql.pdf" target="_blank" class="btn btn-secondary btn-sm" id="cert-oracle-sql">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Certificate
+          </a>
+        </div>
+        <div class="cert-card glass-card animate-on-scroll" data-delay="2">
+          <div class="cert-icon">🏅</div>
+          <h3>Oracle PL/SQL Certification</h3>
+          <span class="cert-issuer">Oracle Academy</span>
+          <p>Validated expertise in Database Programming with PL/SQL including stored procedures, functions, triggers, and advanced database programming concepts.</p>
+          <a href="certificates/oracle_plsql.pdf" target="_blank" class="btn btn-secondary btn-sm" id="cert-oracle-plsql">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Certificate
+          </a>
+        </div>
+        <div class="cert-card glass-card animate-on-scroll" data-delay="3">
+          <div class="cert-icon">🎨</div>
+          <h3>Figma Workshop Certificate</h3>
+          <span class="cert-issuer">Figma Workshop</span>
+          <p>Completed intensive workshop on UI/UX design principles, prototyping, component design, and collaborative design workflows using Figma.</p>
+          <a href="certificates/figma.pdf" target="_blank" class="btn btn-secondary btn-sm" id="cert-figma">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Certificate
+          </a>
+        </div>
+        <div class="cert-card glass-card animate-on-scroll" data-delay="4">
+          <div class="cert-icon">☕</div>
+          <h3>Java Professional Course</h3>
+          <span class="cert-issuer">Udemy — In Progress</span>
+          <p>Comprehensive Java programming course covering OOP concepts, data structures, design patterns, and enterprise application development. Currently pursuing.</p>
+          <span class="btn btn-secondary btn-sm" style="opacity: 0.6; cursor: default; pointer-events: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            In Progress
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS SECTION ============ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">My Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A showcase of my recent work and personal projects.</p>
+      </div>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card glass-card animate-on-scroll" data-delay="1">
+          <div class="project-image">
+            <div class="project-placeholder">🚦</div>
+            <div class="project-image-overlay">
+              <a href="#" class="btn btn-sm btn-primary" id="project1-demo">Live Demo</a>
+              <a href="#" class="btn btn-sm btn-secondary" id="project1-code">Code</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Smart Traffic Signal</h3>
+            <p>An AI-powered traffic management system that uses motion cameras to optimize signal timing. Detects emergency vehicles like ambulances and dynamically identifies the fastest route from location to hospital, ensuring priority passage.</p>
+            <div class="project-tags">
+              <span>Python</span><span>AI/ML</span><span>OpenCV</span><span>IoT</span>
+            </div>
+            <div class="project-links">
+              <a href="#" aria-label="View live demo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/paulnihil20-oss" target="_blank" aria-label="View source code">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card glass-card animate-on-scroll" data-delay="2">
+          <div class="project-image">
+            <img src="images/fintech.png" alt="FinTech Dashboard Screenshot" style="width:100%; height:100%; object-fit:cover;" />
+            <div class="project-image-overlay">
+              <a href="https://github.com/paulnihil20-oss/lulaby" target="_blank" class="btn btn-sm btn-secondary" id="project2-code">Code</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>FinTech</h3>
+            <p>A smart financial management platform designed for middle-class families. Automatically tracks expenses by analyzing bank SMS messages, provides monthly spending insights, and includes features like live gold rate tracking to help families make informed financial decisions.</p>
+            <div class="project-tags">
+              <span>JavaScript</span><span>HTML</span><span>CSS</span><span>SMS API</span><span>REST API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/paulnihil20-oss/lulaby" target="_blank" aria-label="View source code">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card glass-card animate-on-scroll" data-delay="3">
+          <div class="project-image">
+            <div class="project-placeholder">✅</div>
+            <div class="project-image-overlay">
+              <a href="https://github.com/paulnihil20-oss" target="_blank" class="btn btn-sm btn-secondary" id="project3-code">Code</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>ApproveX</h3>
+            <p>An educational platform that digitizes college approval workflows for students and administrators. Enables online leave applications, permission requests, and other campus-related approvals — reducing time and effort by replacing manual paperwork with a seamless digital process.</p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Java</span><span>MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/paulnihil20-oss" target="_blank" aria-label="View source code">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESUME SECTION ============ -->
+  <section id="resume">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">My Resume</span>
+        <h2 class="section-title">Professional Resume</h2>
+        <p class="section-subtitle">A summary of my education, skills, and professional experience.</p>
+      </div>
+      <div class="resume-content">
+        <div class="resume-preview glass-card animate-on-scroll" style="padding: 0; overflow: hidden;">
+          <iframe src="Paul_Nihil_Resume.pdf" width="100%" height="100%" style="border: none; min-height: 500px;"></iframe>
+        </div>
+        <div class="resume-info animate-on-scroll" data-delay="2">
+          <h3>Download My Resume</h3>
+          <p>
+            My resume highlights my education in Computer Science, technical skills across multiple programming
+            languages and frameworks, professional certifications, and project experience. Feel free to download
+            or view the full document.
+          </p>
+          <ul class="resume-features">
+            <li><span class="check">✓</span> Education & Academic Achievements</li>
+            <li><span class="check">✓</span> Technical Skills & Proficiencies</li>
+            <li><span class="check">✓</span> Professional Certifications</li>
+            <li><span class="check">✓</span> Project Portfolio & Experience</li>
+            <li><span class="check">✓</span> Extracurricular Activities</li>
+          </ul>
+          <div class="resume-buttons">
+            <a href="Paul_Nihil_Resume.pdf" download class="btn btn-primary" id="resume-download-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
+            </a>
+            <a href="Paul_Nihil_Resume.pdf" target="_blank" class="btn btn-secondary" id="resume-view-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION TIMELINE ============ -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">My Journey</span>
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">The academic path that shaped my career in technology.</p>
+      </div>
+      <div class="timeline">
+        <!-- Bachelor's Degree -->
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2022 – Present</span>
+            <h3>B.E. in Computer Science Engineering</h3>
+            <p class="institution">Loyola-ICAM College of Engineering and Technology, Chennai</p>
+            <p>Currently pursuing a comprehensive Computer Science Engineering curriculum covering data structures, algorithms, database systems, web development, and software engineering principles. Active in technical clubs and coding competitions.</p>
+          </div>
+        </div>
+        <!-- Higher Secondary -->
+        <div class="timeline-item animate-on-scroll" data-delay="2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2020 – 2022</span>
+            <h3>Higher Secondary Education (HSC)</h3>
+            <p class="institution">Maharishi Vidya Mandir Sr. Sec. School, Madurai</p>
+            <p>Completed higher secondary education with a focus on Computer Science and Mathematics. Developed a strong foundation in logical thinking and programming fundamentals.</p>
+          </div>
+        </div>
+        <!-- School -->
+        <div class="timeline-item animate-on-scroll" data-delay="3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2020</span>
+            <h3>Secondary School Education (SSLC)</h3>
+            <p class="institution">Maharishi Vidya Mandir Sr. Sec. School, Madurai</p>
+            <p>Completed secondary school education with excellent academic performance. Discovered passion for technology and began exploring computer programming.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS SECTION ============ -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Milestones</span>
+        <h2 class="section-title">Achievements</h2>
+        <p class="section-subtitle">Key accomplishments that highlight my dedication and growth.</p>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card glass-card animate-on-scroll" data-delay="1">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-number" data-count="4" data-suffix="+">0</div>
+          <h3>Certifications Earned</h3>
+          <p>Professional certifications from Oracle, Udemy, and Figma workshops.</p>
+        </div>
+        <div class="achievement-card glass-card animate-on-scroll" data-delay="2">
+          <div class="achievement-icon">🎓</div>
+          <div class="achievement-number" data-count="6" data-suffix="+">0</div>
+          <h3>Workshops Attended</h3>
+          <p>Technical workshops on web development, UI/UX design, and database management.</p>
+        </div>
+        <div class="achievement-card glass-card animate-on-scroll" data-delay="3">
+          <div class="achievement-icon">📚</div>
+          <div class="achievement-number" data-count="8" data-suffix="+">0</div>
+          <h3>Technical Courses</h3>
+          <p>Completed courses in Java, SQL, PL/SQL, web technologies, and design tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT SECTION ============ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info animate-on-scroll">
+          <h3>Let's Work Together</h3>
+          <p>I'm currently open to new opportunities and collaborations. Whether you have a project idea, a job opportunity, or just want to connect — feel free to reach out!</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-text">
+                <span class="label">Email</span>
+                <span class="value">paulnihil20@gmail.com</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📱</div>
+              <div class="contact-item-text">
+                <span class="label">Phone</span>
+                <span class="value">+91 80122 23232</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div class="contact-item-text">
+                <span class="label">Location</span>
+                <span class="value">Madurai, Tamil Nadu, India</span>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/paulnihil-p-150a54328" target="_blank" class="social-link" aria-label="LinkedIn" id="social-linkedin">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://github.com/paulnihil20-oss" target="_blank" class="social-link" aria-label="GitHub" id="social-github">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter" id="social-twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram" id="social-instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form glass-card animate-on-scroll" data-delay="2" id="contact-form">
+          <div class="form-group">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Your Email</label>
+            <input type="email" id="contact-email" name="email" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Your Message</label>
+            <textarea id="contact-message" name="message" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="contact-submit-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="#hero" class="footer-logo">Paul</a>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/paulnihil-p-150a54328" target="_blank" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/paulnihil20-oss" target="_blank" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Paul. All rights reserved. Built with ❤️ from Madurai, India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
