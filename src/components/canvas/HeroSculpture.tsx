@@ -107,13 +107,12 @@ export const HeroSculpture: React.FC = () => {
     window.addEventListener('mousemove', onMove, { passive: true });
 
     // ─── GSAP ScrollTrigger — hero exit ──────────────────────────────
-    // As user scrolls out of hero, sculpture drifts right and fades
     const heroExit = gsap.timeline({
       scrollTrigger: {
         trigger: '#hero',
         start: 'top top',
         end: 'bottom top',
-        scrub: 1.2,        // scrub value = inertia (seconds to catch up)
+        scrub: 1.2,
         invalidateOnRefresh: true,
       },
     });
@@ -137,7 +136,7 @@ export const HeroSculpture: React.FC = () => {
       mouse.x += (mouse.tx - mouse.x) * 0.05;
       mouse.y += (mouse.ty - mouse.y) * 0.05;
 
-      // Idle ambient rotation (GSAP scroll overrides these during scroll)
+      // Idle ambient rotation
       mainGroup.rotation.y += 0.003;
       mainGroup.rotation.x = Math.sin(t * 0.18) * 0.1 + mouse.y * 0.3;
       mainGroup.rotation.z = Math.sin(t * 0.1) * 0.04;

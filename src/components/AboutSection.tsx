@@ -70,7 +70,7 @@ export const AboutSection: React.FC = () => {
         {/* Headline */}
         <div className="about-text-block max-w-3xl">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink tracking-tight uppercase leading-[1.08]">
-            Engineering Resilient Systems<br />From First Principles.
+            2nd Year CSE Student.<br />Building Real Things.
           </h2>
         </div>
 
@@ -80,24 +80,24 @@ export const AboutSection: React.FC = () => {
           <div className="about-left-col lg:col-span-7 space-y-8">
             <div className="about-text-block space-y-4 font-sans text-base text-ink-muted leading-relaxed">
               <p className="text-ink font-medium text-lg leading-relaxed">
-                I am a Computer Science Engineering student at{' '}
+                I'm Paul Nihil — a 2nd-year CSE student at{' '}
                 <span className="text-ink font-semibold border-b border-ink">Loyola-ICAM College of Engineering and Technology (LICET)</span>,
-                Chennai, with roots in Madurai, Tamil Nadu.
+                Chennai, originally from Madurai.
               </p>
               <p>
-                My engineering focus centers on backend data structures, robust Java systems, relational database architecture, and intelligent edge computer vision applications. I enjoy building software that solves tangible operational problems—from intelligent civic traffic prioritization to automated campus workflows.
+                I picked up Java and SQL early and got certified through Oracle Academy while still in my first year. Since then I've shipped four projects — an AI traffic system, a finance tracker, a campus approval platform, and an electronics spec tool — all of them solving problems I ran into or observed around me.
               </p>
               <p>
-                Whether designing a normalized Oracle SQL schema or engineering an edge OpenCV pipeline, I prioritize clean architectural separation, computational efficiency, and maintainability.
+                I'm actively looking for internship or entry-level opportunities where I can contribute, learn from a real team, and keep building.
               </p>
             </div>
 
             {/* Core Competency Highlights */}
             <div className="about-text-block border border-rule divide-y divide-rule font-mono text-xs bg-canvas">
               {[
-                { title: 'FULL-STACK DEVELOPMENT', desc: 'React, TypeScript, Java, and modern web architectures' },
-                { title: 'COMPUTER VISION & AI', desc: 'OpenCV, Python edge detection, and real-time video processing' },
-                { title: 'DATABASE ARCHITECTURE', desc: 'Oracle Academy certified in SQL & PL/SQL, MySQL schema design' },
+                { title: 'JAVA & SQL', desc: 'Oracle Academy certified · JDBC, stored procedures, schema design' },
+                { title: 'WEB DEVELOPMENT', desc: 'HTML, CSS, JavaScript, React — built and shipped 4 projects' },
+                { title: 'COMPUTER VISION', desc: 'Python + OpenCV · real-time vehicle detection pipeline' },
               ].map(({ title, desc }) => (
                 <div key={title} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <span className="text-ink font-semibold uppercase flex items-center gap-2">
@@ -148,7 +148,7 @@ export const AboutSection: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-ink-muted uppercase">ROLE TARGETS:</span>
-                  <span className="text-ink font-medium">Software Engineer / Full-Stack</span>
+                  <span className="text-ink font-medium">Internship · Software / Full-Stack</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-ink-muted uppercase">EMAIL:</span>
@@ -160,9 +160,9 @@ export const AboutSection: React.FC = () => {
             {/* Quick Metrics Grid */}
             <div className="profile-card grid grid-cols-3 gap-3">
               {[
-                { icon: <FolderGit2 className="w-4 h-4 mx-auto text-cobalt" />, val: '03+', label: 'Projects Built' },
+                { icon: <FolderGit2 className="w-4 h-4 mx-auto text-cobalt" />, val: '04+', label: 'Projects Built' },
                 { icon: <Award className="w-4 h-4 mx-auto text-cobalt" />, val: '04', label: 'Certifications' },
-                { icon: <Code2 className="w-4 h-4 mx-auto text-cobalt" />, val: '12+', label: 'Tech Stacks' },
+                { icon: <Code2 className="w-4 h-4 mx-auto text-cobalt" />, val: '13+', label: 'Skills' },
               ].map(({ icon, val, label }) => (
                 <div key={label} className="p-4 border border-rule bg-canvas text-center space-y-1 hover:border-ink transition-colors">
                   {icon}

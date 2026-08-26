@@ -76,8 +76,35 @@ export const PROJECTS: Project[] = [
     image: '/images/fintech.png'
   },
   {
-    id: 'approvex',
+    id: 'specamp',
     number: '03',
+    title: 'SpecAmp — AI Component Specification Validator',
+    category: 'Developer Tooling / AI & Web Scraping',
+    year: '2026',
+    role: 'Full-Stack Developer & AI Pipeline Engineer',
+    tagline: 'One MPN. Every source. One truth.',
+    description: 'An AI-powered electronics component research tool that takes any manufacturer part number (MPN) and aggregates specifications from multiple distributor and datasheet sources — DigiKey, Mouser, Octopart, and manufacturer sites. Specs are extracted, normalized to comparable units, cross-validated, and confidence-scored so engineers can trust what they read.',
+    problem: 'Hardware engineers waste hours juggling five browser tabs to verify a single resistor value, with no indication of which source is correct when they conflict.',
+    solution: 'Built an automated pipeline that scrapes and parses each datasheet source into structured JSON, normalizes units deterministically in code (e.g. 100nF = 0.1µF = 100000pF), and flags disagreements with a confidence score and a 0–100% spec completeness rating per part. Supports full BOM batch lookup with CSV export.',
+    architecture: [
+      'MPN Input → Multi-Source Distributor & Datasheet Scraper',
+      'LLM-Assisted Structured JSON Spec Extraction Pipeline',
+      'Deterministic Unit Normalization Engine (no model conversion)',
+      'Cross-Source Conflict Detection & Confidence Scoring Layer',
+      'BOM Batch Processor with 7-Day Result Caching & CSV Export'
+    ],
+    metrics: [
+      '3–5 independent sources validated per part lookup',
+      'Units normalized deterministically — 100nF, 0.1µF, 100000pF all compare equally',
+      '0–100% completeness score for every retrieved spec sheet'
+    ],
+    technologies: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'AI / LLM', 'REST APIs'],
+    githubUrl: 'https://github.com/paulnihil20-oss/specam',
+    image: '/images/smart_traffic.png'
+  },
+  {
+    id: 'approvex',
+    number: '04',
     title: 'ApproveX Campus Workflow Automation Platform',
     category: 'Enterprise Web Application',
     year: '2024',
@@ -225,47 +252,34 @@ export const TIMELINE: TimelineItem[] = [
 
 export const SKILLS_MATRIX: SkillCategory[] = [
   {
-    category: 'PROGRAMMING LANGUAGES',
+    category: 'LANGUAGES',
     code: '01',
     skills: [
-      { name: 'Java', level: 'Advanced', experience: '3+ Years', description: 'Core OOP, Collections, Multithreading, JDBC, Design Patterns' },
-      { name: 'Python', level: 'Advanced', experience: '2+ Years', description: 'Computer Vision (OpenCV), Scripting, Data Processing, ML basics' },
-      { name: 'SQL', level: 'Expert', experience: '2+ Years', description: 'Complex Queries, Subqueries, Joins, Schema Design, Optimization' },
-      { name: 'PL/SQL', level: 'Proficient', experience: '1+ Years', description: 'Stored Procedures, Triggers, Functions, Cursor Management' },
-      { name: 'C', level: 'Advanced', experience: '2+ Years', description: 'Memory Management, Pointers, Algorithms, Systems Foundations' },
-      { name: 'JavaScript (ES6+)', level: 'Advanced', experience: '2+ Years', description: 'DOM Manipulation, Async/Await, Web APIs, Modern Frontends' }
+      { name: 'Java', level: 'Intermediate', experience: '2+ Years', description: 'OOP, Collections, JDBC, basic multithreading' },
+      { name: 'Python', level: 'Intermediate', experience: '1+ Years', description: 'Scripting, OpenCV basics, data processing' },
+      { name: 'C', level: 'Intermediate', experience: '1+ Years', description: 'Pointers, memory, algorithms' },
+      { name: 'JavaScript', level: 'Intermediate', experience: '1+ Years', description: 'DOM, fetch API, basic async patterns' },
+      { name: 'SQL / PL-SQL', level: 'Intermediate', experience: '1+ Years', description: 'Queries, joins, stored procedures, triggers' }
     ]
   },
   {
-    category: 'FRONTEND ARCHITECTURE',
+    category: 'WEB & UI',
     code: '02',
     skills: [
-      { name: 'React', level: 'Proficient', experience: '1+ Years', description: 'Component Architecture, Hooks, State Management, SPAs' },
-      { name: 'HTML5 & Semantic Web', level: 'Expert', experience: '3+ Years', description: 'Accessible Markup, SEO Standards, Cross-Browser Compatibility' },
-      { name: 'CSS3 & Modern Layouts', level: 'Expert', experience: '3+ Years', description: 'Flexbox, CSS Grid, Custom Properties, Kinetic Animations' },
-      { name: 'Tailwind CSS', level: 'Advanced', experience: '2+ Years', description: 'Utility-First Systems, Custom Design Tokens, Responsive Grids' },
-      { name: 'UI / UX Design', level: 'Advanced', experience: '2+ Years', description: 'Visual Hierarchy, Typography, Design Systems, User Research' }
+      { name: 'HTML & CSS', level: 'Intermediate', experience: '2+ Years', description: 'Semantic markup, flexbox, grid, responsive design' },
+      { name: 'React', level: 'Intermediate', experience: '1+ Years', description: 'Components, hooks, basic state management' },
+      { name: 'Tailwind CSS', level: 'Intermediate', experience: '1+ Years', description: 'Utility classes, responsive layouts' },
+      { name: 'Figma', level: 'Intermediate', experience: '1+ Years', description: 'Wireframes, prototyping, basic design systems' }
     ]
   },
   {
-    category: 'BACKEND & DATABASE',
+    category: 'DATABASES & TOOLS',
     code: '03',
     skills: [
-      { name: 'MySQL', level: 'Advanced', experience: '2+ Years', description: 'Relational Database Design, Indexing, Transaction Handling' },
-      { name: 'Oracle Database', level: 'Advanced', experience: '2+ Years', description: 'Enterprise Data Structures, Stored Procedures, PL/SQL Execution' },
-      { name: 'RESTful API Design', level: 'Advanced', experience: '2+ Years', description: 'Endpoint Architecture, JSON Serialization, HTTP Methods' },
-      { name: 'Node.js Basics', level: 'Intermediate', experience: '1+ Years', description: 'Server Execution, Express Routing, Backend Middleware' },
-      { name: 'JDBC', level: 'Advanced', experience: '2+ Years', description: 'Java Database Connectivity, Connection Pools, Prepared Statements' }
-    ]
-  },
-  {
-    category: 'ENGINEERING TOOLS & WORKFLOW',
-    code: '04',
-    skills: [
-      { name: 'Git & GitHub', level: 'Advanced', experience: '3+ Years', description: 'Version Control, Branching Strategies, Pull Requests, CI/CD' },
-      { name: 'Figma', level: 'Advanced', experience: '2+ Years', description: 'High-Fidelity Wireframes, Prototyping, Component Libraries' },
-      { name: 'VS Code', level: 'Expert', experience: '3+ Years', description: 'Developer Tooling, Debugging, Extensions, Workflow Tuning' },
-      { name: 'Linux / Terminal', level: 'Proficient', experience: '2+ Years', description: 'Shell Commands, Scripting, Process Management, Git CLI' }
+      { name: 'MySQL', level: 'Intermediate', experience: '1+ Years', description: 'Schema design, queries, basic indexing' },
+      { name: 'Oracle DB', level: 'Intermediate', experience: '1+ Years', description: 'SQL & PL/SQL, stored procedures' },
+      { name: 'Git & GitHub', level: 'Intermediate', experience: '2+ Years', description: 'Version control, branching, pull requests' },
+      { name: 'VS Code', level: 'Intermediate', experience: '2+ Years', description: 'Day-to-day development environment' }
     ]
   }
 ];

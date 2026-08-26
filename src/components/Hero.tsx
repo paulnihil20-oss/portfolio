@@ -132,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
             ref={subtitleRef}
             className="text-lg sm:text-xl lg:text-2xl font-sans text-ink font-normal leading-snug tracking-tight max-w-2xl pt-2 pointer-events-auto"
           >
-            Computer Science Engineer. Full-Stack Developer. Building resilient systems and minimalist digital platforms.
+            CSE Student at LICET · Java, SQL, Python, React · 4 shipped projects · Looking for internships in 2026.
           </p>
 
           {/* Actions */}
@@ -170,7 +170,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
             { n: '01', label: 'Discipline', value: 'Computer Science Engineering' },
             { n: '02', label: 'Location', value: 'Madurai & Chennai, India' },
             { n: '03', label: 'Academic Base', value: 'LICET (2024 – 2028)' },
-            { n: '04', label: 'Status', value: 'Open for Roles & Internships', pulse: true },
+            { n: '04', label: 'Status', value: 'Seeking Internship — 2026', pulse: true },
           ].map(({ n, label, value, pulse }) => (
             <div key={n} className="py-4 md:py-5 px-0 md:px-4 space-y-1">
               <span className="block font-mono text-[10px] uppercase text-ink-muted tracking-widest">

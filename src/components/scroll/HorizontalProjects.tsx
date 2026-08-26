@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PROJECTS } from '../../data/portfolioData';
 import { Project } from '../../types';
 import { ArrowUpRight, Github } from 'lucide-react';
+import { ProjectVisual } from '../ProjectVisual';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -148,20 +149,16 @@ export const HorizontalProjects: React.FC<HorizontalProjectsProps> = ({ onOpenPr
                 onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
                 onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
               >
-                {/* Project image */}
+                {/* Project visual — no image, tech-themed blueprint */}
                 <div className="relative w-full aspect-video overflow-hidden bg-canvas-dark">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                  />
+                  <ProjectVisual projectId={project.id} className="absolute inset-0" />
                   {/* Overlay label */}
-                  <div className="absolute top-4 left-4 flex items-center gap-3">
+                  <div className="absolute top-4 left-4 flex items-center gap-3 z-10">
                     <span className="font-mono text-[10px] uppercase tracking-widest bg-canvas text-ink px-3 py-1 border border-rule">
                       {project.number} // {project.category}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-widest text-canvas/80 border border-canvas/30 px-2 py-0.5 bg-ink/60 backdrop-blur-sm">
+                  <div className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-widest text-canvas/80 border border-canvas/30 px-2 py-0.5 bg-ink/60 backdrop-blur-sm z-10">
                     {project.year}
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { Mail, Copy, Check, Send, Phone, MapPin, Linkedin, Github, FileText } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -16,9 +17,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
   const titleLinesRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [formState, handleFormspreeSubmit] = useForm('xyegrode');
+
+  // Fire confetti once on successful submission
+  useEffect(() => {
+    if (formState.succeeded) {
+      confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 }, colors: ['#2457FF', '#111111', '#B8B8B3'] });
+    }
+  }, [formState.succeeded]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -65,18 +71,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 }, colors: ['#2457FF', '#111111', '#B8B8B3'] });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 800);
   };
 
   return (
@@ -188,55 +182,73 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
               <h3 className="font-display font-bold text-xl text-ink">Send a Message</h3>
               <p className="font-sans text-xs text-ink-muted">Direct delivery to Paul Nihil.</p>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { id: 'name', label: 'Name *', type: 'text', placeholder: 'e.g. Alex Morgan', key: 'name' as const },
-                  { id: 'email', label: 'Email *', type: 'email', placeholder: 'alex@company.com', key: 'email' as const },
-                ].map(({ id, label, type, placeholder, key }) => (
-                  <div key={id} className="space-y-1.5">
-                    <label htmlFor={id} className="block font-mono text-xs uppercase tracking-wider text-ink font-medium">{label}</label>
+
+            {formState.succeeded ? (
+              <div className="py-12 flex flex-col items-center justify-center gap-4 text-center">
+                <div className="w-12 h-12 border border-emerald-500/40 bg-emerald-50 flex items-center justify-center">
+                  <Check className="w-6 h-6 text-emerald-600" />
+                </div>
+                <div>
+                  <p className="font-mono text-sm font-bold text-ink uppercase tracking-widest">Message Sent</p>
+                  <p className="font-sans text-xs text-ink-muted mt-1">Thanks for reaching out — I'll get back to you soon.</p>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleFormspreeSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label htmlFor="name" className="block font-mono text-xs uppercase tracking-wider text-ink font-medium">Name *</label>
                     <input
-                      type={type} id={id} required
-                      value={formData[key]}
-                      onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
-                      placeholder={placeholder}
+                      type="text" id="name" name="name" required
+                      placeholder="e.g. Alex Morgan"
                       className="w-full px-3.5 py-2.5 border border-rule bg-canvas-subtle/20 text-ink text-sm font-sans focus:outline-none focus:border-cobalt transition-colors"
                     />
+                    <ValidationError field="name" errors={formState.errors} className="font-mono text-[10px] text-red-500" />
                   </div>
-                ))}
-              </div>
-              <div className="space-y-1.5">
-                <label htmlFor="subject" className="block font-mono text-xs uppercase tracking-wider text-ink font-medium">Subject</label>
-                <input
-                  type="text" id="subject" value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  placeholder="e.g. Software Engineering Opportunity / Project Collaboration"
-                  className="w-full px-3.5 py-2.5 border border-rule bg-canvas-subtle/20 text-ink text-sm font-sans focus:outline-none focus:border-cobalt transition-colors"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <label htmlFor="message" className="block font-mono text-xs uppercase tracking-wider text-ink font-medium">Message *</label>
-                <textarea
-                  id="message" required rows={4} value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Your message details..."
-                  className="w-full px-3.5 py-2.5 border border-rule bg-canvas-subtle/20 text-ink text-sm font-sans focus:outline-none focus:border-cobalt transition-colors resize-none"
-                />
-              </div>
-              <button
-                type="submit" disabled={isSubmitting}
-                className="w-full sm:w-auto px-8 py-3.5 bg-ink text-canvas font-mono text-xs uppercase tracking-widest hover:bg-cobalt transition-colors flex items-center justify-center gap-2 font-semibold disabled:opacity-50"
-              >
-                {isSubmitting ? <span>Sending...</span> : <><Send className="w-4 h-4" /><span>Send Message</span></>}
-              </button>
-              {submitted && (
-                <div className="p-4 border border-emerald-500/40 bg-emerald-50 text-emerald-800 font-mono text-xs space-y-1">
-                  <p className="font-bold">✓ Message Sent Successfully!</p>
-                  <p className="text-[11px]">Thank you for reaching out. I will get back to you promptly.</p>
+                  <div className="space-y-1.5">
+                    <label htmlFor="email" className="block font-mono text-xs uppercase tracking-wider text-ink font-medium">Email *</label>
+                    <input
+                      type="email" id="email" name="email" required
+                      placeholder="alex@company.com"
+                      className="w-full px-3.5 py-2.5 border border-rule bg-canvas-subtle/20 text-ink text-sm font-sans focus:outline-none focus:border-cobalt transition-colors"
+                    />
+                    <ValidationError field="email" errors={formState.errors} className="font-mono text-[10px] text-red-500" />
+                  </div>
                 </div>
-              )}
-            </form>
+
+                <div className="space-y-1.5">
+                  <label htmlFor="subject" className="block font-mono text-xs uppercase tracking-wider text-ink font-medium">Subject</label>
+                  <input
+                    type="text" id="subject" name="subject"
+                    placeholder="e.g. Internship Opportunity / Project Collaboration"
+                    className="w-full px-3.5 py-2.5 border border-rule bg-canvas-subtle/20 text-ink text-sm font-sans focus:outline-none focus:border-cobalt transition-colors"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label htmlFor="message" className="block font-mono text-xs uppercase tracking-wider text-ink font-medium">Message *</label>
+                  <textarea
+                    id="message" name="message" required rows={4}
+                    placeholder="Your message..."
+                    className="w-full px-3.5 py-2.5 border border-rule bg-canvas-subtle/20 text-ink text-sm font-sans focus:outline-none focus:border-cobalt transition-colors resize-none"
+                  />
+                  <ValidationError field="message" errors={formState.errors} className="font-mono text-[10px] text-red-500" />
+                </div>
+
+                <ValidationError errors={formState.errors} className="font-mono text-[10px] text-red-500 block" />
+
+                <button
+                  type="submit"
+                  disabled={formState.submitting}
+                  className="w-full sm:w-auto px-8 py-3.5 bg-ink text-canvas font-mono text-xs uppercase tracking-widest hover:bg-cobalt transition-colors flex items-center justify-center gap-2 font-semibold disabled:opacity-50"
+                >
+                  {formState.submitting
+                    ? <span>Sending...</span>
+                    : <><Send className="w-4 h-4" /><span>Send Message</span></>
+                  }
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

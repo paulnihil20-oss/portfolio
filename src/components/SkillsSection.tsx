@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SKILLS_MATRIX } from '../data/portfolioData';
-import { Terminal, Layout, Database, Wrench, CheckCircle, Sparkles } from 'lucide-react';
+import { Terminal, Layout, Database, Wrench } from 'lucide-react';
 
 export const SkillsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');

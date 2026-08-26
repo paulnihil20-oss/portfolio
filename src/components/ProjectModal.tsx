@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Project } from '../types';
 import { X, Github, ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ProjectVisual } from './ProjectVisual';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -68,13 +69,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </p>
         </div>
 
-        {/* Visual Hero */}
+        {/* Visual Hero — tech blueprint, no photo */}
         <div className="border border-rule overflow-hidden bg-canvas-dark relative aspect-video sm:aspect-[21/9]">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover opacity-95"
-          />
+          <ProjectVisual projectId={project.id} className="absolute inset-0" />
         </div>
 
         {/* Problem vs Solution Grid */}
