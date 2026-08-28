@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Command, Menu, X, FileText } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Command, Menu, X, FileText, Palette, Check } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { useTheme, THEMES, ThemeMode } from '../context/ThemeContext';
+import { sound } from '../utils/audio';
 
 interface NavbarProps {
   onOpenCommandPalette: () => void;
@@ -8,15 +10,18 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResume }) => {
+  const { theme, setTheme, themeConfig } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
 
-      const sections = ['hero', 'statement', 'work', 'about', 'skills', 'timeline', 'certificates', 'contact'];
+      const sections = ['hero', 'statement', 'work', 'lab', 'about', 'skills', 'timeline', 'certificates', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -36,14 +41,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setThemeDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const navLinks = [
     { name: 'Work', href: '#work' },
+    { name: 'Live Lab', href: '#lab', isHighlight: true },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#timeline' },
     { name: 'Certifications', href: '#certificates' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleSelectTheme = (mode: ThemeMode) => {
+    sound.playClick();
+    setTheme(mode);
+    setThemeDropdownOpen(false);
+  };
 
   return (
     <header
@@ -57,6 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
         {/* Left: Brand Initials & System Code */}
         <a
           href="#hero"
+          onClick={() => sound.playClick()}
           className="flex items-center gap-3 group"
         >
           <span className="font-display font-bold text-lg text-ink tracking-tight">
@@ -68,18 +92,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
         </a>
 
         {/* Center: Minimalist Editorial Nav Links (Desktop) */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-7">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`font-mono text-xs uppercase tracking-widest transition-colors relative py-1 ${
+                onClick={() => sound.playClick()}
+                className={`font-mono text-xs uppercase tracking-widest transition-colors relative py-1 flex items-center gap-1.5 ${
                   isActive ? 'text-ink font-semibold' : 'text-ink-muted hover:text-ink'
                 }`}
               >
-                {link.name}
+                {link.isHighlight && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                )}
+                <span>{link.name}</span>
                 {isActive && (
                   <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-cobalt" />
                 )}
@@ -88,11 +116,69 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
           })}
         </nav>
 
-        {/* Right: Actions (Resume, Cmd+K, Mobile Toggle) */}
-        <div className="flex items-center gap-3">
+        {/* Right: Actions (Theme Lens Switcher, Resume, Cmd+K, Mobile Toggle) */}
+        <div className="flex items-center gap-2.5">
+          
+          {/* Creative Theme Matrix Lens Switcher */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => {
+                sound.playClick();
+                setThemeDropdownOpen(!themeDropdownOpen);
+              }}
+              onMouseEnter={() => sound.playHover()}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 border border-rule hover:border-ink bg-canvas text-ink font-mono text-[11px] uppercase tracking-wider transition-colors"
+              title="Switch Visual Aesthetic Lens"
+            >
+              <Palette className="w-3.5 h-3.5 text-cobalt" />
+              <span className="hidden sm:inline font-semibold">{themeConfig.name.split(' ')[0]}</span>
+            </button>
+
+            {/* Theme Dropdown Menu */}
+            {themeDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-64 border border-rule bg-canvas shadow-xl z-50 p-2 space-y-1 animate-fadeIn">
+                <div className="px-2.5 py-1.5 border-b border-rule/50 font-mono text-[10px] text-ink-muted uppercase tracking-wider font-bold">
+                  AESTHETIC LENSES & SCHEMATICS:
+                </div>
+                {(Object.keys(THEMES) as ThemeMode[]).map((mode) => {
+                  const cfg = THEMES[mode];
+                  const isCurrent = theme === mode;
+                  return (
+                    <button
+                      key={mode}
+                      onClick={() => handleSelectTheme(mode)}
+                      className={`w-full text-left p-2 font-mono text-xs transition-all flex items-center justify-between group ${
+                        isCurrent
+                          ? 'bg-ink text-canvas font-bold'
+                          : 'hover:bg-canvas-subtle text-ink'
+                      }`}
+                    >
+                      <div className="space-y-0.5">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className="w-2 h-2 rounded-full"
+                            style={{ backgroundColor: cfg.accent }}
+                          />
+                          <span className="font-semibold">{cfg.name}</span>
+                        </div>
+                        <span className={`text-[10px] block ${isCurrent ? 'text-canvas/70' : 'text-ink-muted'}`}>
+                          {cfg.subtitle}
+                        </span>
+                      </div>
+                      {isCurrent && <Check className="w-3.5 h-3.5 text-cobalt shrink-0 ml-2" />}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {/* Resume PDF Action */}
           <button
-            onClick={onOpenResume}
+            onClick={() => {
+              sound.playClick();
+              onOpenResume();
+            }}
             className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 border border-rule hover:border-ink bg-transparent text-ink font-mono text-xs uppercase tracking-wider transition-colors"
           >
             <FileText className="w-3.5 h-3.5 text-cobalt" />
@@ -101,7 +187,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
 
           {/* Command Palette Trigger */}
           <button
-            onClick={onOpenCommandPalette}
+            onClick={() => {
+              sound.playClick();
+              onOpenCommandPalette();
+            }}
             className="hidden lg:flex items-center gap-2 px-3 py-1.5 border border-rule hover:border-ink text-ink-muted hover:text-ink font-mono text-xs transition-colors"
             title="Search & Quick Actions (Ctrl+K)"
           >
@@ -128,22 +217,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  sound.playClick();
+                  setMobileMenuOpen(false);
+                }}
                 className="font-mono text-sm uppercase tracking-widest text-ink py-2 border-b border-rule/50 flex items-center justify-between"
               >
-                <span>{link.name}</span>
+                <div className="flex items-center gap-2">
+                  {link.isHighlight && (
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  )}
+                  <span>{link.name}</span>
+                </div>
                 <span className="text-xs text-ink-muted font-normal">→</span>
               </a>
             ))}
           </div>
 
-          <div className="pt-2 flex items-center justify-between gap-3">
+          <div className="pt-2 flex flex-col gap-2.5">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 bg-ink text-canvas font-mono text-xs uppercase tracking-widest"
+              className="w-full flex items-center justify-center gap-2 py-2.5 bg-ink text-canvas font-mono text-xs uppercase tracking-widest font-semibold"
             >
               <FileText className="w-4 h-4 text-cobalt" />
               <span>View Full Resume</span>

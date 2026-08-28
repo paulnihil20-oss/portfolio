@@ -134,13 +134,17 @@ export const Introduction: React.FC = () => {
           </span>
         </div>
 
-        {/* Large Quote — word-split animated */}
-        <div className="max-w-5xl">
+        {/* Compact Engineering Statement */}
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 border border-rule font-mono text-[11px] uppercase tracking-wider text-ink-muted bg-canvas">
+            <span className="w-1.5 h-1.5 rounded-full bg-cobalt" />
+            Core Philosophy
+          </div>
           <h2
             ref={quoteRef}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-ink tracking-tight leading-[1.1]"
+            className="text-xl sm:text-2xl md:text-3xl font-display font-semibold text-ink tracking-tight leading-snug"
           >
-            "I design and engineer digital systems where rigorous computer science fundamentals meet clean, uncompromising editorial architecture."
+            Building software systems anchored in computer science fundamentals, efficient algorithms, and clean modern architecture.
           </h2>
         </div>
 

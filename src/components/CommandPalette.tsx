@@ -1,6 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, ArrowRight, X, Sparkles, FileText, Mail, Github, Linkedin, Code, Award, Check, Layers, GraduationCap } from 'lucide-react';
+import {
+  Search,
+  ArrowRight,
+  X,
+  Sparkles,
+  FileText,
+  Mail,
+  Github,
+  Linkedin,
+  Code,
+  Award,
+  Check,
+  Layers,
+  GraduationCap,
+  Cpu,
+  Palette
+} from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
+import { useTheme } from '../context/ThemeContext';
+import { sound } from '../utils/audio';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -10,7 +28,7 @@ interface CommandPaletteProps {
 
 interface PaletteAction {
   id: string;
-  category: 'Navigation' | 'Projects' | 'Actions' | 'Social';
+  category: 'Navigation' | 'Projects' | 'Themes' | 'Actions' | 'Social';
   title: string;
   subtitle?: string;
   icon: React.ElementType;
@@ -18,6 +36,7 @@ interface PaletteAction {
 }
 
 export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onOpenResume }) => {
+  const { setTheme } = useTheme();
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [copied, setCopied] = useState(false);
@@ -32,8 +51,21 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'Engineered systems, architecture, and live projects',
       icon: Sparkles,
       perform: () => {
+        sound.playClick();
         onClose();
         document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+      },
+    },
+    {
+      id: 'nav-lab',
+      category: 'Navigation',
+      title: 'Live Systems Laboratory',
+      subtitle: 'Interactive Edge CV, SMS Regex Lexer, Oracle ACID & Java Loom sandbox',
+      icon: Cpu,
+      perform: () => {
+        sound.playClick();
+        onClose();
+        document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' });
       },
     },
     {
@@ -43,6 +75,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'Education, academic base at LICET, and core focus',
       icon: Layers,
       perform: () => {
+        sound.playClick();
         onClose();
         document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
       },
@@ -54,6 +87,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'Programming languages, databases, web & AI tooling',
       icon: Code,
       perform: () => {
+        sound.playClick();
         onClose();
         document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
       },
@@ -65,6 +99,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'Academic path, degrees, and engineering milestones',
       icon: GraduationCap,
       perform: () => {
+        sound.playClick();
         onClose();
         document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' });
       },
@@ -76,6 +111,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'Oracle SQL, PL/SQL, Java Professional & UI/UX Credentials',
       icon: Award,
       perform: () => {
+        sound.playClick();
         onClose();
         document.getElementById('certificates')?.scrollIntoView({ behavior: 'smooth' });
       },
@@ -87,8 +123,58 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'Send message, direct email, and communication channels',
       icon: Mail,
       perform: () => {
+        sound.playClick();
         onClose();
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      },
+    },
+    // Themes Lens
+    {
+      id: 'theme-editorial',
+      category: 'Themes',
+      title: 'Theme: Editorial Swiss',
+      subtitle: 'Linen Parchment & High-Contrast Cobalt (Default)',
+      icon: Palette,
+      perform: () => {
+        sound.playClick();
+        setTheme('editorial');
+        onClose();
+      },
+    },
+    {
+      id: 'theme-blueprint',
+      category: 'Themes',
+      title: 'Theme: Blueprint CAD Schematics',
+      subtitle: 'Technical Drafting & Cyan Schematics',
+      icon: Palette,
+      perform: () => {
+        sound.playClick();
+        setTheme('blueprint');
+        onClose();
+      },
+    },
+    {
+      id: 'theme-cyberpunk',
+      category: 'Themes',
+      title: 'Theme: Matrix Phosphor Terminal',
+      subtitle: 'Obsidian Terminal & Emerald Phosphor Glow',
+      icon: Palette,
+      perform: () => {
+        sound.playClick();
+        setTheme('cyberpunk');
+        onClose();
+      },
+    },
+    {
+      id: 'theme-amber',
+      category: 'Themes',
+      title: 'Theme: Amber Monolith',
+      subtitle: '1980s Retro Mainframe Engineering Workstation',
+      icon: Palette,
+      perform: () => {
+        sound.playClick();
+        setTheme('amber');
+        onClose();
       },
     },
     // Actions
@@ -99,6 +185,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'Curriculum Vitae with full technical and academic record',
       icon: FileText,
       perform: () => {
+        sound.playClick();
         onClose();
         onOpenResume();
       },
@@ -110,6 +197,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: PERSONAL_INFO.email,
       icon: Mail,
       perform: () => {
+        sound.playClick();
         navigator.clipboard.writeText(PERSONAL_INFO.email);
         setCopied(true);
         setTimeout(() => {
@@ -126,6 +214,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: `${p.category} · ${p.technologies.join(', ')}`,
       icon: Code,
       perform: () => {
+        sound.playClick();
         onClose();
         document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
       },
@@ -138,6 +227,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'github.com/paulnihil20-oss',
       icon: Github,
       perform: () => {
+        sound.playClick();
         window.open(PERSONAL_INFO.github, '_blank', 'noopener,noreferrer');
         onClose();
       },
@@ -149,6 +239,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       subtitle: 'linkedin.com/in/paulnihil-p-150a54328',
       icon: Linkedin,
       perform: () => {
+        sound.playClick();
         window.open(PERSONAL_INFO.linkedin, '_blank', 'noopener,noreferrer');
         onClose();
       },
@@ -219,7 +310,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search projects, skills, certifications, or actions..."
+            placeholder="Search projects, simulations, themes, skills, certifications..."
             className="w-full bg-transparent font-sans text-sm text-ink placeholder:text-ink-muted focus:outline-none"
           />
           {query && (
@@ -249,59 +340,60 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
         {/* Quick Navigation Items */}
         <div className="p-3 max-h-[60vh] overflow-y-auto space-y-1">
           {filteredActions.length === 0 ? (
-            <div className="py-12 text-center text-ink-muted font-sans text-sm">
-              No results found for &ldquo;{query}&rdquo;
+            <div className="py-12 text-center text-ink-muted font-mono text-xs">
+              No matching commands or projects found for &quot;{query}&quot;
             </div>
           ) : (
-            filteredActions.map((action, idx) => {
+            filteredActions.map((action, index) => {
               const Icon = action.icon;
-              const isSelected = idx === selectedIndex;
+              const isSelected = index === selectedIndex;
               return (
                 <button
                   key={action.id}
-                  onClick={() => action.perform()}
-                  onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`w-full flex items-center justify-between p-3 text-left transition-colors border ${
+                  onClick={action.perform}
+                  onMouseEnter={() => {
+                    sound.playHover();
+                    setSelectedIndex(index);
+                  }}
+                  className={`w-full text-left p-3 flex items-center justify-between border transition-all ${
                     isSelected
-                      ? 'bg-canvas-subtle/80 border-ink'
-                      : 'border-transparent hover:bg-canvas-subtle/40'
+                      ? 'bg-ink text-canvas border-ink'
+                      : 'border-transparent hover:border-rule text-ink'
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className={`p-2 border ${isSelected ? 'border-cobalt bg-cobalt/10 text-cobalt' : 'border-rule text-ink-muted'}`}>
+                    <div className={`p-1.5 border ${isSelected ? 'border-canvas/30 text-canvas' : 'border-rule text-cobalt'}`}>
                       <Icon className="w-4 h-4" />
                     </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="font-sans text-sm font-semibold text-ink truncate">
-                          {action.title}
-                        </span>
-                        <span className="font-mono text-[9px] uppercase px-1.5 py-0.5 border border-rule text-ink-muted shrink-0">
+                    <div className="truncate">
+                      <div className="font-sans text-xs font-semibold flex items-center gap-2">
+                        <span>{action.title}</span>
+                        <span className={`text-[10px] font-mono px-1.5 py-0.2 border ${isSelected ? 'border-canvas/30 text-canvas/80' : 'border-rule text-ink-muted'}`}>
                           {action.category}
                         </span>
                       </div>
                       {action.subtitle && (
-                        <p className="font-sans text-xs text-ink-muted truncate">
+                        <div className={`text-[11px] font-sans truncate ${isSelected ? 'text-canvas/70' : 'text-ink-muted'}`}>
                           {action.subtitle}
-                        </p>
+                        </div>
                       )}
                     </div>
                   </div>
-                  <ArrowRight className={`w-4 h-4 text-ink-muted transition-transform shrink-0 ml-3 ${isSelected ? 'translate-x-0.5 text-cobalt' : 'opacity-40'}`} />
+                  <ArrowRight className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-canvas' : 'text-ink-muted'}`} />
                 </button>
               );
             })
           )}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="p-3 border-t border-rule bg-canvas-subtle/30 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-ink-muted">
-          <div className="flex items-center gap-4">
-            <span><strong className="text-ink">↑↓</strong> to navigate</span>
-            <span><strong className="text-ink">↵</strong> to select</span>
-            <span><strong className="text-ink">ESC</strong> to exit</span>
+        {/* Footer shortcuts */}
+        <div className="p-3 border-t border-rule bg-canvas-subtle/30 flex items-center justify-between font-mono text-[10px] text-ink-muted">
+          <div className="flex items-center gap-3">
+            <span>↑↓ Navigate</span>
+            <span>↵ Select</span>
+            <span>ESC Close</span>
           </div>
-          <span>{filteredActions.length} items</span>
+          <span>PAUL NIHIL // 2026</span>
         </div>
       </div>
     </div>

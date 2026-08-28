@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { ScrollProgress } from './components/ScrollProgress';
+import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Introduction } from './components/Introduction';
 import { SelectedWork } from './components/SelectedWork';
+import { InteractiveLab } from './components/InteractiveLab';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { TimelineSection } from './components/TimelineSection';
@@ -14,7 +17,7 @@ import { CommandPalette } from './components/CommandPalette';
 import { ResumeModal } from './components/ResumeModal';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
-export const App: React.FC = () => {
+export const AppContent: React.FC = () => {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
@@ -22,7 +25,10 @@ export const App: React.FC = () => {
   useScrollReveal();
 
   return (
-    <div className="min-h-screen bg-canvas text-ink font-sans selection:bg-cobalt selection:text-white editorial-grid-bg relative">
+    <div className="min-h-screen bg-canvas text-ink font-sans selection:bg-cobalt selection:text-white editorial-grid-bg relative transition-colors duration-300">
+      {/* Interactive Magnetic Custom Cursor */}
+      <CustomCursor />
+
       {/* Top Scroll Progress Indicator */}
       <ScrollProgress />
 
@@ -34,19 +40,22 @@ export const App: React.FC = () => {
 
       {/* Main Continuous Editorial Sections */}
       <main>
-        {/* 01 // HERO */}
+        {/* 01 // HERO & MONUMENTAL IDENTITY */}
         <Hero onOpenTerminal={() => setIsCommandPaletteOpen(true)} />
 
         {/* 02 // INTRODUCTION & MANIFESTO */}
         <Introduction />
 
-        {/* 03 // SELECTED WORK & CASE STUDIES */}
+        {/* 03 // SELECTED WORK & PRODUCTION SYSTEMS */}
         <SelectedWork />
+
+        {/* 03.5 // LIVE SYSTEMS LABORATORY (INTERACTIVE ENGINE RUNTIME) */}
+        <InteractiveLab />
 
         {/* 04 // ABOUT & TELEMETRY */}
         <AboutSection />
 
-        {/* 05 // SKILLS MATRIX & 3D CONSTELLATION */}
+        {/* 05 // SKILLS MATRIX & CAPABILITIES */}
         <SkillsSection />
 
         {/* 06 // TIMELINE & ACADEMICS */}
@@ -75,6 +84,14 @@ export const App: React.FC = () => {
         onClose={() => setIsResumeModalOpen(false)}
       />
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
 
